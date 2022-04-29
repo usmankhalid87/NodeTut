@@ -4,7 +4,7 @@ const EventEmitter = require('events');
 const eventEmitter = new EventEmitter();
 
 eventEmitter.on('log', () => {
-    logEvents('Log Event Message!!!');
+    logEvents('Log Event Message');
   });
 
 setTimeout(() => {
