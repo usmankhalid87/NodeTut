@@ -13,6 +13,7 @@ const whitelist = [
 ];
 const corsOption = {
   origin: (origin, callback) => {
+    console.log(origin);
     if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
@@ -22,7 +23,7 @@ const corsOption = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOption));
+//app.use(cors(corsOption));
 
 // built-in middleware to handle urlencoded data
 // in other words, form data:
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, "/public")));
 
 //Routes
 app.use("/", require("./routes/root"));
+app.use("/employees", require("./routes/api/employees"));
 
 app.all("*", (req, res) => {
   res.status(404);
